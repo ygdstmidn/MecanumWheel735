@@ -16,6 +16,8 @@ extern "C"
     {
         setbuf(stdout, NULL);
         printf("Hello World!!\n");
+
+        HAL_CAN_Start(&hcan1);
     }
 
     // MARK:loop

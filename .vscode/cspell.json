@@ -9,6 +9,7 @@
         "GPIOB",
         "GPIOC",
         "huart",
+        "Mecanum",
         "NUCLEO",
         "USART"
     ]

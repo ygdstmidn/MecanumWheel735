@@ -1,0 +1,3 @@
+[submodule "Core/Inc/DitelMotorDriverController"]
+	path = Core/Inc/DitelMotorDriverController
+	url = https://github.com/ygdstmidn/DitelMotorDriverController.git

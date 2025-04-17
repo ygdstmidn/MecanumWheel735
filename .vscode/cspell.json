@@ -4,10 +4,12 @@
     ],
     "words": [
         "cproject",
+        "Ditel",
         "EXTI",
         "GPIOA",
         "GPIOB",
         "GPIOC",
+        "hcan",
         "huart",
         "Mecanum",
         "NUCLEO",

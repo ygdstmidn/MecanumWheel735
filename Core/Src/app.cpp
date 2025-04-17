@@ -31,7 +31,7 @@ extern "C"
 
         if (now - pre >= 10)
         {
-            DitelMotor(&hcan1, MOTOR_ADDRESS, 10);
+            DitelMotor(&hcan1, MOTOR_ADDRESS, 50);
             pre = now;
         }
     }

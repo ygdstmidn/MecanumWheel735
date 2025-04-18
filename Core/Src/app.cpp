@@ -21,8 +21,6 @@ extern "C"
         printf("Hello World!!\n");
 
         HAL_CAN_Start(&hcan1);
-        DitelMotorDriverSetPIDGain(&hcan1, MOTOR_ADDRESS, 3, 7, 0);
-        DitelMotorDriverPIDCondition(&hcan1, MOTOR_ADDRESS, DITEL_MOTOR_PID_ENABLE);
     }
 
     // MARK:loop
@@ -33,23 +31,6 @@ extern "C"
 
         if (now - pre >= 10)
         {
-            static int speed = 0;
-            DitelMotorPID(&hcan1, MOTOR_ADDRESS, speed);
-
-            static int count = 0;
-            count++;
-            if(count >= 500)
-            {
-                if(speed == 0)
-                {
-                    speed = 8000;
-                }
-                else
-                {
-                    speed = 0;
-                }
-                count = 0;
-            }
             pre = now;
         }
     }

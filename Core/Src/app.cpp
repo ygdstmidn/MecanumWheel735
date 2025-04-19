@@ -24,18 +24,19 @@ extern "C"
         printf("Hello World!!\n");
 
         HAL_CAN_Start(&hcan1);
-        // DitelMotorDriverSetPIDGain(&hcan1, MOTOR_ADDRESS1, 0, 1, 0);
-        // DitelMotorDriverPIDCondition(&hcan1, MOTOR_ADDRESS1, DITEL_MOTOR_PID_ENABLE);
-        // HAL_Delay(1);
-        // DitelMotorDriverSetPIDGain(&hcan1, MOTOR_ADDRESS2, 0, 1, 0);
-        // DitelMotorDriverPIDCondition(&hcan1, MOTOR_ADDRESS2, DITEL_MOTOR_PID_ENABLE);
-        // HAL_Delay(1);
-        // DitelMotorDriverSetPIDGain(&hcan1, MOTOR_ADDRESS3, 1, 20, 0);
-        // DitelMotorDriverPIDCondition(&hcan1, MOTOR_ADDRESS3, DITEL_MOTOR_PID_ENABLE);
-        // HAL_Delay(1);
-        // DitelMotorDriverSetPIDGain(&hcan1, MOTOR_ADDRESS4, 0, 1, 0);
-        // DitelMotorDriverPIDCondition(&hcan1, MOTOR_ADDRESS4, DITEL_MOTOR_PID_ENABLE);
-        // HAL_Delay(1);
+        HAL_Delay(1);
+        DitelMotorDriverSetPIDGain(&hcan1, MOTOR_ADDRESS1, 10, 100, 0, -1);
+        DitelMotorDriverPIDCondition(&hcan1, MOTOR_ADDRESS1, DITEL_MOTOR_PID_ENABLE);
+        HAL_Delay(1);
+        DitelMotorDriverSetPIDGain(&hcan1, MOTOR_ADDRESS2, 10, 100, 0, -1);
+        DitelMotorDriverPIDCondition(&hcan1, MOTOR_ADDRESS2, DITEL_MOTOR_PID_ENABLE);
+        HAL_Delay(1);
+        DitelMotorDriverSetPIDGain(&hcan1, MOTOR_ADDRESS3, 7, 60, 0, -1);
+        DitelMotorDriverPIDCondition(&hcan1, MOTOR_ADDRESS3, DITEL_MOTOR_PID_ENABLE);
+        HAL_Delay(1);
+        DitelMotorDriverSetPIDGain(&hcan1, MOTOR_ADDRESS4, 10, 100, 0, -1);
+        DitelMotorDriverPIDCondition(&hcan1, MOTOR_ADDRESS4, DITEL_MOTOR_PID_ENABLE);
+        HAL_Delay(1);
     }
 
     // MARK:loop
@@ -46,20 +47,20 @@ extern "C"
 
         if (now - pre >= 10)
         {
-            static int speed = 40;
-            DitelMotor(&hcan1, MOTOR_ADDRESS1, speed);
-            DitelMotor(&hcan1, MOTOR_ADDRESS2, -1 * speed);
+            static int speed = 800;
+            DitelMotorPID(&hcan1, MOTOR_ADDRESS1, speed);
+            DitelMotorPID(&hcan1, MOTOR_ADDRESS2, -1 * speed);
             HAL_Delay(1);
-            DitelMotor(&hcan1, MOTOR_ADDRESS3, -1.5 * speed);
-            DitelMotor(&hcan1, MOTOR_ADDRESS4, speed);
+            DitelMotorPID(&hcan1, MOTOR_ADDRESS3, -4 * speed);
+            DitelMotorPID(&hcan1, MOTOR_ADDRESS4, speed);
 
             // static int count = 0;
             // count++;
-            // if (count >= 500)
+            // if (count >= 1000)
             // {
             //     if (speed == 0)
             //     {
-            //         speed = 4000;
+            //         speed = 800;
             //     }
             //     else
             //     {
